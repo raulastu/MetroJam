@@ -8,18 +8,48 @@
         android:minSdkVersion="8"
         android:targetSdkVersion="17" />
 
+    <!-- GMAPS PERMISSIONS -->
+    <permission
+    android:name="com.example.mapdemo.permission.MAPS_RECEIVE"
+    android:protectionLevel="signature"/>
+  	<uses-permission android:name="com.example.mapdemo.permission.MAPS_RECEIVE"/>
+  
+  	<!-- GPS PERMISSION -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    
+    <!-- NETWORKS PERMISSIONS -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+
+    <!-- VIBRATOR PERMISSION -->
     <uses-permission android:name="android.permission.VIBRATE" />
     
+    <!-- Maps API needs OpenGL ES 2.0. -->
+  	<uses-feature
+    android:glEsVersion="0x00020000"
+    android:required="true"/>
+  
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+        <meta-data
+	      android:name="com.google.android.maps.v2.API_KEY"
+	      android:value="AIzaSyB7Aqqqgop2_ee4DD709_3Vz_A9Vy96wBE"/>
+            
         <activity
             android:name="com.huahcoding.metrojam.StationListActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.huahcoding.metrojam.RouteCreationActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.huahcoding.metrojam.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

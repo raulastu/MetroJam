@@ -46,6 +46,9 @@ public class GeoLocation implements LocationListener{
 
 	}
 	int testArrayIndex=0;
+	
+	boolean test=false;
+	
 	@Override
 	public void onLocationChanged(Location location) {
 		if (location != null) {
@@ -55,15 +58,21 @@ public class GeoLocation implements LocationListener{
 //			System.out.println("lat" + lat);
 //			System.out.println("long" + lng);
 //			System.out.println("long" + location);
-			Location a = new Location("RC-TEST");
-			double [] data = RouteTestData.getWorkPoints();
-			Utils.log(testArrayIndex+""); 
-			if(testArrayIndex<data.length-1){
-				a.setLatitude(data[testArrayIndex++]);
-				a.setLongitude(data[testArrayIndex++]);
-//				testArrayIndex++;
-				delegate.callback(a);
+			
+			if(test){
+				Location a = new Location("RC-TEST");
+				double [] data = RouteTestData.getWorkPoints();
+				Utils.log(testArrayIndex+""); 
+				if(testArrayIndex<data.length-1){
+					a.setLatitude(data[testArrayIndex++]);
+					a.setLongitude(data[testArrayIndex++]);
+//					testArrayIndex++;
+					delegate.callback(a);
+				}
+			}else{
+				delegate.callback(location);
 			}
+//			delegate.callback(location);
 			
 		}
 	}

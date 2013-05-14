@@ -49,7 +49,7 @@ public class StationListActivity extends ListActivity implements Delegate {
 		// list = (ListView) findViewById(R.id.list);
 
 
-		points = RouteTestData.getMetroPolitanoStations();
+		points = RouteTestData.getWorkData();
 		route = new Route(Arrays.asList(points));
 
 		// Getting adapter by passing xml data ArrayList
@@ -92,14 +92,14 @@ public class StationListActivity extends ListActivity implements Delegate {
 		
 
 		route.getClosestPoints(myPosition);
-		adapter.notifyDataSetChanged();
+		adapter.notifyDataSetChanged(); 
 
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.station_list, menu);
+		getMenuInflater().inflate(R.menu.main_action_menu, menu);
 		return true;
 	}
 

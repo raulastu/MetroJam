@@ -5,7 +5,7 @@ import com.huahcoding.metrojam.model.RoutePoint;
 
 public class RouteTestData {
 	
-	public static RoutePoint[] getMetroPolitanoStations(){
+	public static RoutePoint[] getMetroPolitanoStationsData(){
 		return  new RoutePoint[] {
 				new RoutePoint("Naranjal", -11.982181,-77.05876),
 				new RoutePoint("Izaguirre", -11.989727,-77.056957),
@@ -47,7 +47,7 @@ public class RouteTestData {
 		};
 	}
 	
-	public RoutePoint[] getWorkData(){
+	public static RoutePoint[] getWorkData(){
 		return  new RoutePoint[] {
 				new RoutePoint("Bunker", -12.083313, -77.007557),
 				new RoutePoint("Metro Canada", -12.084947, -77.009901),
@@ -55,7 +55,7 @@ public class RouteTestData {
 				new RoutePoint("Javier Prado Cross", -12.09071, -77.022781),
 				new RoutePoint("Canaval y Moreira St.", -12.09692, -77.025087),
 				new RoutePoint("Aramburu St.", -12.103104, -77.027373),
-				new RoutePoint("Domingo Oru?? St.", -12.108444, -77.026386),
+				new RoutePoint("Domingo Orué St.", -12.108444, -77.026386),
 				new RoutePoint("Angamos St.", -12.113836, -77.025715),
 				new RoutePoint("Ovalo Gutierrez", -12.109818, -77.036921),
 				new RoutePoint("Terremark Office", -12.118771, -77.037361), };
