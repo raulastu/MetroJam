@@ -2,7 +2,10 @@ package com.huahcoding.metrojam.model;
 
 import java.io.Serializable;
 
-public class Point  {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Point {
 
 	private String name;
 	private double longitude;
@@ -13,10 +16,10 @@ public class Point  {
 		this.latitude = lt;
 		this.longitude = lg;
 	}
-	
+
 	@Override
 	public String toString() {
-		return name + " \n[lt=" + latitude+" lg=" + longitude + "]";
+		return name + " \n[lt=" + latitude + " lg=" + longitude + "]";
 	}
 
 	public String getName() {
@@ -42,5 +45,6 @@ public class Point  {
 	public void setLatitude(double latitude) {
 		this.latitude = latitude;
 	}
-
+	
+	
 }

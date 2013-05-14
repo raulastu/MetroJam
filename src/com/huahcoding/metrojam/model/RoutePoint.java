@@ -3,8 +3,10 @@ package com.huahcoding.metrojam.model;
 import com.huahcoding.metrojam.Utils;
 
 import android.annotation.SuppressLint;
+import android.os.Parcel;
+import android.os.Parcelable;
 
-public class RoutePoint extends Point {
+public class RoutePoint extends Point implements Parcelable{
 
 	private double distanceFromCurrent;
 	private RoutePoint back;
@@ -179,4 +181,37 @@ public class RoutePoint extends Point {
 	public void setBack(RoutePoint back) {
 		this.back = back;
 	}
+	
+
+	//Parcerable
+	@Override
+	public int describeContents() {
+		return 0;
+	}
+
+	@Override
+	public void writeToParcel(Parcel parcel, int arg1) {
+		parcel.writeString(getName());
+		parcel.writeDouble(getLatitude());
+		parcel.writeDouble(getLongitude());
+	}
+
+
+	public static final Parcelable.Creator<Point> CREATOR = new Parcelable.Creator<Point>() {
+		public Point createFromParcel(Parcel in) {
+			return new RoutePoint(in);
+		}
+
+		public Point[] newArray(int size) {
+			return new Point[size];
+		}
+	};
+
+	private RoutePoint(Parcel in) {
+//		String name = ;
+//		double latitude = ;
+//		double longitude = ;
+		this(in.readString(), in.readDouble(), in.readDouble());
+	}
+	
 }

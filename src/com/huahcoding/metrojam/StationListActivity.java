@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Vibrator;
 
 import com.example.metrojam.R;
+import com.huahcoding.metrojam.model.Point;
 import com.huahcoding.metrojam.model.Route;
 import com.huahcoding.metrojam.model.RoutePoint;
 import com.huahcoding.metrojam.test.RouteTestData;
@@ -38,19 +39,30 @@ public class StationListActivity extends ListActivity implements Delegate {
 	Route route;
 	GeoLocation geo;
 	Vibrator v;
+	public String routeName; 
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		// setContentView(R.layout.activity_station_list);
+		if(getIntent().getExtras()!=null){
+			routeName=getIntent().getExtras().getString("com.huahcoding.metrojam.name");
+			Object[] ob = getIntent().getExtras().getParcelableArray("com.huahcoding.metrojam.SelectedRoute");
+			this.points= new RoutePoint[ob.length];
+			System.arraycopy(ob, 0, points, 0, ob.length);
+		}else{
+			routeName="Home-Work";
+			points=RouteTestData.getWorkData();
+		}
+		route = new Route(Arrays.asList(points));
+		
+		// list = (ListView) findViewById(R.id.list);
 
 		v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 
-		// list = (ListView) findViewById(R.id.list);
-
-
-		points = RouteTestData.getWorkData();
-		route = new Route(Arrays.asList(points));
+//		points = RouteTestData.getWorkData();
+		
 
 		// Getting adapter by passing xml data ArrayList
 		adapter = new LazyAdapter(this, R.id.list, Arrays.asList(points));
@@ -60,7 +72,6 @@ public class StationListActivity extends ListActivity implements Delegate {
 
 		getListView().post(new Runnable() {
 
-			@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 			@Override
 			public void run() {
 				geo = new GeoLocation(StationListActivity.this, StationListActivity.this);
@@ -102,5 +113,9 @@ public class StationListActivity extends ListActivity implements Delegate {
 		getMenuInflater().inflate(R.menu.main_action_menu, menu);
 		return true;
 	}
-
+	
+	@Override
+	public String getName() {
+		return routeName;
+	}
 }

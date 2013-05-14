@@ -41,22 +41,17 @@ public final class FeatureView extends FrameLayout {
         layoutInflater.inflate(R.layout.feature, this);
     }
 
-    /**
-     * Set the resource id of the title of the demo.
-     *
-     * @param titleId the resource id of the title of the demo
-     */
-    public synchronized void setTitleId(int titleId) {
-        ((TextView) (findViewById(R.id.title))).setText(titleId);
-    }
 
+    public synchronized void setTitle(String title) {
+        ((TextView) (findViewById(R.id.title))).setText(title);
+    }
     /**
      * Set the resource id of the description of the demo.
      *
      * @param descriptionId the resource id of the description of the demo
      */
-    public synchronized void setDescriptionId(int descriptionId) {
-        ((TextView) (findViewById(R.id.description))).setText(descriptionId);
+    public synchronized void setDescription(String description) {
+        ((TextView) (findViewById(R.id.description))).setText(description);
     }
 
 }

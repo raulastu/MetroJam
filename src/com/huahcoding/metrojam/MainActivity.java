@@ -17,7 +17,11 @@
 package com.huahcoding.metrojam;
 
 import com.example.metrojam.R;
+import com.huahcoding.metrojam.model.Point;
+import com.huahcoding.metrojam.model.RoutePoint;
+import com.huahcoding.metrojam.test.RouteTestData;
 
+import android.app.Activity;
 import android.app.ListActivity;
 
 import android.content.Context;
@@ -44,13 +48,18 @@ import android.widget.Toast;
  */
 public final class MainActivity extends ListActivity {
 
-    
+	private static final StationListDetails[] demos = new StationListDetails[2];
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
+        demos[0] = new StationListDetails("Home-Work", "My route", StationListActivity.class,
+                RouteTestData.getWorkData());
+        demos[1] = new StationListDetails("Metropolitano Troncal A", "Metro Jam", StationListActivity.class,
+        		RouteTestData.getMetroPolitanoStationsData());
+        
         ListAdapter adapter = new CustomArrayAdapter(this, demos);
 
         setListAdapter(adapter);
@@ -85,40 +94,40 @@ public final class MainActivity extends ListActivity {
 	  } 
 	
 	
-    private static class DemoDetails {
-        /**
-         * The resource id of the title of the demo.
-         */
-        private final int titleId;
+    private static class StationListDetails {
+        private final String title;
+        private final String description;
+        private final Class<? extends Activity> activityClass;
+        private RoutePoint[] points;
 
-        /**
-         * The resources id of the description of the demo.
-         */
-        private final int descriptionId;
-
-        /**
-         * The demo activity's class.
-         */
-        private final Class<? extends FragmentActivity> activityClass;
-
-        public DemoDetails(
-                int titleId, int descriptionId, Class<? extends FragmentActivity> activityClass) {
+        public StationListDetails(
+        		String titleId, 
+        		String descriptionId, 
+        		Class<? extends Activity> activityClass,
+        		RoutePoint[] points) {
             super();
-            this.titleId = titleId;
-            this.descriptionId = descriptionId;
+            this.title = titleId;
+            this.description = descriptionId;
             this.activityClass = activityClass;
+            this.points=points;
         }
+        private RoutePoint[] getPoints() {
+			return points;
+		}
+        private String getTitle() {
+			return title;
+		}
     }
 
     /**
      * A custom array adapter that shows a {@link FeatureView} containing details about the demo.
      */
-    private static class CustomArrayAdapter extends ArrayAdapter<DemoDetails> {
+    private static class CustomArrayAdapter extends ArrayAdapter<StationListDetails> {
 
         /**
          * @param demos An array containing the details of the demos to be displayed.
          */
-        public CustomArrayAdapter(Context context, DemoDetails[] demos) {
+        public CustomArrayAdapter(Context context, StationListDetails[] demos) {
             super(context, R.layout.feature, R.id.title, demos);
         }
 
@@ -131,20 +140,23 @@ public final class MainActivity extends ListActivity {
                 featureView = new FeatureView(getContext());
             }
 
-            DemoDetails demo = getItem(position);
+            StationListDetails demo = getItem(position);
 
-            featureView.setTitleId(demo.titleId);
-            featureView.setDescriptionId(demo.descriptionId);
+            featureView.setTitle(demo.title);
+            featureView.setDescription(demo.description);
 
             return featureView;
         }
     }
 
-    private static final DemoDetails[] demos = new DemoDetails[0];
+    
 
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
-        DemoDetails demo = (DemoDetails) getListAdapter().getItem(position);
-        startActivity(new Intent(this, demo.activityClass));
+        StationListDetails routeList = (StationListDetails) getListAdapter().getItem(position);
+        Intent i = new Intent(this, routeList.activityClass);
+        i.putExtra("com.huahcoding.metrojam.SelectedRoute", routeList.getPoints());
+        i.putExtra("com.huahcoding.metrojam.name", routeList.getTitle());
+        startActivity(i);
     }
 }

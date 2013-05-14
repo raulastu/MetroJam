@@ -33,7 +33,7 @@ public class GeoLocation implements LocationListener{
 		locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, this);
 		locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0,0, this);
 		Location location = locationManager
-				.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+				.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
 		
 
 		if (location != null) {
@@ -41,13 +41,12 @@ public class GeoLocation implements LocationListener{
 			onLocationChanged(location);
 		} else {
 			System.out.println("Location not available");
-			System.out.println("Location not available");
 		}
 
 	}
 	int testArrayIndex=0;
 	
-	boolean test=false;
+	boolean test=true;
 	
 	@Override
 	public void onLocationChanged(Location location) {
@@ -59,7 +58,7 @@ public class GeoLocation implements LocationListener{
 //			System.out.println("long" + lng);
 //			System.out.println("long" + location);
 			
-			if(test){
+			if(test && delegate.getName().equals("Home-Work")){
 				Location a = new Location("RC-TEST");
 				double [] data = RouteTestData.getWorkPoints();
 				Utils.log(testArrayIndex+""); 

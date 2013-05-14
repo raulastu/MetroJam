@@ -1,5 +1,6 @@
 package com.huahcoding.metrojam.test;
 
+import com.huahcoding.metrojam.model.Point;
 import com.huahcoding.metrojam.model.RoutePoint;
 
 
