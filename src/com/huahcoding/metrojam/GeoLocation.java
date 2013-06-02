@@ -26,6 +26,7 @@ public class GeoLocation implements LocationListener{
 		this.delegate=delegate;
 		init();
 	}
+	
 	private void init(){
 
 		locationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
@@ -42,8 +43,8 @@ public class GeoLocation implements LocationListener{
 		} else {
 			System.out.println("Location not available");
 		}
-
 	}
+	
 	int testArrayIndex=0;
 	
 	boolean test=true;

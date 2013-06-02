@@ -140,49 +140,54 @@ containing a value of this type.
     }
     public static final class drawable {
         public static final int arrow=0x7f020000;
-        public static final int busicon=0x7f020001;
-        public static final int current_pointer=0x7f020002;
-        public static final int gradient_bg=0x7f020003;
-        public static final int gradient_bg_current=0x7f020004;
-        public static final int gradient_bg_hover=0x7f020005;
-        public static final int gradient_bg_tracker_1=0x7f020006;
-        public static final int gradient_bg_tracker_10=0x7f020007;
-        public static final int gradient_bg_tracker_2=0x7f020008;
-        public static final int gradient_bg_tracker_3=0x7f020009;
-        public static final int gradient_bg_tracker_4=0x7f02000a;
-        public static final int gradient_bg_tracker_5=0x7f02000b;
-        public static final int gradient_bg_tracker_6=0x7f02000c;
-        public static final int gradient_bg_tracker_7=0x7f02000d;
-        public static final int gradient_bg_tracker_8=0x7f02000e;
-        public static final int gradient_bg_tracker_9=0x7f02000f;
-        public static final int ic_launcher=0x7f020010;
-        public static final int image_bg=0x7f020011;
-        public static final int list_selector=0x7f020012;
+        public static final int blue_arrow=0x7f020001;
+        public static final int blue_arrow_left=0x7f020002;
+        public static final int busicon=0x7f020003;
+        public static final int current_pointer=0x7f020004;
+        public static final int gradient_bg=0x7f020005;
+        public static final int gradient_bg_current=0x7f020006;
+        public static final int gradient_bg_hover=0x7f020007;
+        public static final int gradient_bg_tracker_1=0x7f020008;
+        public static final int gradient_bg_tracker_10=0x7f020009;
+        public static final int gradient_bg_tracker_2=0x7f02000a;
+        public static final int gradient_bg_tracker_3=0x7f02000b;
+        public static final int gradient_bg_tracker_4=0x7f02000c;
+        public static final int gradient_bg_tracker_5=0x7f02000d;
+        public static final int gradient_bg_tracker_6=0x7f02000e;
+        public static final int gradient_bg_tracker_7=0x7f02000f;
+        public static final int gradient_bg_tracker_8=0x7f020010;
+        public static final int gradient_bg_tracker_9=0x7f020011;
+        public static final int ic_launcher=0x7f020012;
+        public static final int image_bg=0x7f020013;
+        public static final int list_selector=0x7f020014;
     }
     public static final class id {
         public static final int action_create_route=0x7f040006;
         public static final int action_refresh=0x7f040005;
-        public static final int artist=0x7f04000e;
-        public static final int button1=0x7f040009;
-        public static final int currentPointer=0x7f04000c;
-        public static final int description=0x7f04000b;
-        public static final int duration=0x7f04000f;
+        public static final int artist=0x7f040010;
+        public static final int button1=0x7f040007;
+        public static final int currentPointer=0x7f04000e;
+        public static final int description=0x7f04000d;
+        public static final int duration=0x7f040011;
         public static final int hybrid=0x7f040004;
-        public static final int list=0x7f040007;
-        public static final int map=0x7f040008;
+        public static final int imageView1=0x7f04000b;
+        public static final int list=0x7f040009;
+        public static final int map=0x7f04000a;
         public static final int none=0x7f040000;
         public static final int normal=0x7f040001;
         public static final int satellite=0x7f040002;
+        public static final int surfaceView1=0x7f040008;
         public static final int terrain=0x7f040003;
-        public static final int thumbnail=0x7f04000d;
-        public static final int title=0x7f04000a;
+        public static final int thumbnail=0x7f04000f;
+        public static final int title=0x7f04000c;
     }
     public static final class layout {
-        public static final int activity_station_list=0x7f030000;
-        public static final int create_route_map=0x7f030001;
-        public static final int feature=0x7f030002;
-        public static final int list_row=0x7f030003;
-        public static final int main=0x7f030004;
+        public static final int activity_main=0x7f030000;
+        public static final int activity_station_list=0x7f030001;
+        public static final int create_route_map=0x7f030002;
+        public static final int feature=0x7f030003;
+        public static final int list_row=0x7f030004;
+        public static final int main=0x7f030005;
     }
     public static final class menu {
         public static final int main_action_menu=0x7f080000;
