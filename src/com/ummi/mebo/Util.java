@@ -25,7 +25,8 @@ public class Util {
 	private static String ftpPass = "user1";
 	*/
 	
-	private static String host = "ftp.kybaliondesk.com";
+	//private static String host = "ftp.kybaliondesk.com";
+	private static String host = "192.168.0.101";
 	private static int port = 21;
 	private static String ftpUser = "movil";
 	private static String ftpPass = "movil";
@@ -52,16 +53,17 @@ public class Util {
 				mFTPClient.setFileType(FTPClient.BINARY_FILE_TYPE);
 				justACounter++;
 				
-				mFTPClient.changeWorkingDirectory("video");
+				mFTPClient.changeWorkingDirectory("videos");
 				
-				String filef = "mebo_upload" + justACounter + ".mp4";
+				//String filef = "mebo_upload" + justACounter + ".mp4";
+				String filef = "angelhack88.mp4";
 				status = mFTPClient.storeFile(filef, srcFileStream);
-				Log.d("com.ummi.mebo2", "result of FTP transfer = " + status);
+				Log.d("com.ummi.mebo2", "result of FTP transfer amigoooo = " + status);
 				srcFileStream.close();
 				
 				//sent HTTP message to notify server
 				//Util.sendHTTPHello("kybaliondesk.com", 80, "/uploadvid.asp?v=mebo_upload"+justACounter+".mp4", "mebo_upload"+justACounter+".mp4");
-				Util.sendHTTPGet("http://kybaliondesk.com/uploadvid.asp?v="+filef);
+				//Util.sendHTTPGet("http://kybaliondesk.com/uploadvid.asp?v="+filef);
 			}
 
 			// now disconnect from FTP
